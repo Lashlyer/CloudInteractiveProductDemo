@@ -15,7 +15,6 @@ struct DecodableModel: Codable {
     let title: String
     let url: String?
     let thumbnailUrl: URL
-    
 
 }
 

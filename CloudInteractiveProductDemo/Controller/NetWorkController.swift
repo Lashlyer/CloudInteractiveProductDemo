@@ -31,17 +31,23 @@ class NetworkController {
         }
         
         
-        self.imageDownloader.download(URLRequest(url: url)) { [weak self] response in
+        self.imageDownloader.download(URLRequest(url: url)) { [weak self] response  in
             guard let self = `self` else { return }
             
-            guard let image = response.result.value else {
+            switch response.result {
+                
+            case .success(_):
+                guard let image = response.result.value else { return }
+                
+                self.imageCache.setObject(image, forKey: url as NSURL)
+                completionHandler(image)
+                
+            case .failure(_):
                 
                 completionHandler(nil)
-                return
+                print("Error")
+               
             }
-            
-            self.imageCache.setObject(image, forKey: url as NSURL)
-            completionHandler(image)
         }
     }
 }

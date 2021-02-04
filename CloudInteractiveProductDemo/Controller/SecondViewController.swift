@@ -52,18 +52,13 @@ class SecondViewController: UIViewController {
     
     private func initView() {
         
-        
         self.mainColleciotnView.delegate = self
         self.mainColleciotnView.dataSource = self
         self.mainColleciotnView.register(UINib(nibName: "SecondCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SecondCollectionViewCell")
         
-        
         let layout = UICollectionViewFlowLayout()
-        let width = Int(self.mainColleciotnView.bounds.size.width)
-        layout.itemSize = CGSize(width: (width / 4), height: (width / 4))
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.estimatedItemSize = .zero
         self.mainColleciotnView.collectionViewLayout = layout
         
         self.loadingView = LoadingView(uiview: self.view, color: .white, alpha: 1)
