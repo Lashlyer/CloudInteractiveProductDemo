@@ -1,0 +1,6 @@
+framework module Pods_CloudInteractiveProductDemo_CloudInteractiveProductDemoUITests {
+  umbrella header "Pods-CloudInteractiveProductDemo-CloudInteractiveProductDemoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
